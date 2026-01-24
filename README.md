@@ -20,7 +20,7 @@ Welcome to the official repository for the **ZenOS** website. ZenOS is an AOSP-b
 ## 📂 Repository Structure
 To ensure the site renders correctly, maintain the following file structure:
 
-
+```text
 .
 ├── index.html                  # Main entry point
 ├── logo.png                    # ZenOS Logo
