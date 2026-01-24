@@ -31,11 +31,3 @@ To ensure the site renders correctly, maintain the following file structure:
 ├── about_device_finished.png   # Screenshot 4
 └── lockscreen_AOD__Finisced_.png # Screenshot 5
 
-## 👥 The Team
-    pixeedev - Owner, Dev & Designer
-    Retr0 - Owner, Dev & Designer
-    Madebyanto - Owner & Dev
-    mariowstech - Owner & Dev
-    manustech - Owner
-    xav - Owner & Sound Producer
-
