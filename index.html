@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenROM | Official Site</title>
+    <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --subtext: #9a9a9a;
+            --border: rgba(255, 255, 255, 0.12);
+            --card-bg: #080808;
+        }
+
+        html { scroll-behavior: smooth; }
+        * { 
+            margin: 0; padding: 0; box-sizing: border-box; 
+            font-family: 'Product Sans', sans-serif !important; 
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 20px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-links { display: flex; gap: 20px; font-size: 0.85rem; }
+        .nav-links a { color: var(--subtext); cursor: pointer; transition: 0.3s; text-decoration: none; }
+        .nav-links a:hover { color: white; }
+
+        .logo-container { display: flex; justify-content: center; align-items: center; }
+        .logo-container img { height: 35px; width: auto; }
+
+        .nav-right { display: flex; justify-content: flex-end; }
+
+        .btn-download {
+            background: white; color: black;
+            padding: 10px 24px; border-radius: 50px;
+            font-size: 0.85rem; text-decoration: none;
+            font-weight: bold; transition: 0.3s ease;
+            cursor: pointer; border: none; display: inline-block;
+        }
+        .btn-download:hover { transform: scale(1.05); }
+
+        /* --- HERO --- */
+        .hero {
+            padding: 220px 10% 140px;
+            text-align: center;
+            background: radial-gradient(circle at top, #111 0%, #000 70%);
+            position: relative;
+            overflow: hidden;
+        }
+        .gradient-text {
+            background: linear-gradient(180deg, #FFFFFF 0%, #A0A0A0 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; display: inline-block;
+        }
+        h1 { font-size: clamp(2.5rem, 6vw, 4.2rem); line-height: 1.1; margin-bottom: 30px; font-weight: 400; letter-spacing: -1.5px; }
+        .hero p { color: var(--subtext); max-width: 650px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.5; }
+        .star-hero { position: absolute; width: 20px; opacity: 0.6; pointer-events: none; }
+
+        /* --- SCREENSHOTS --- */
+        .screenshots-section { padding: 120px 5% 100px; border-top: 1px solid var(--border); text-align: center; }
+        .screenshots-section h2 { font-size: 2.8rem; margin-bottom: 50px; font-weight: 400; }
+        .screenshot-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 20px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        .screen-card { 
+            border-radius: 24px; 
+            overflow: hidden; 
+            border: 1px solid var(--border); 
+            transition: 0.4s;
+            background: #050505;
+        }
+        .screen-card:hover { transform: translateY(-10px); border-color: rgba(255,255,255,0.3); }
+        .screen-card img { width: 100%; height: auto; display: block; }
+
+        /* --- ABOUT US / TEAM --- */
+        .about-section { padding: 120px 10%; border-top: 1px solid var(--border); text-align: center; }
+        .about-section h2 { font-size: 2.8rem; margin-bottom: 20px; font-weight: 400; }
+        .about-section .intro { color: var(--subtext); max-width: 700px; margin: 0 auto 60px; line-height: 1.6; }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .team-card { background: var(--card-bg); border: 1px solid var(--border); padding: 30px 20px; border-radius: 24px; transition: 0.3s; }
+        .team-card img { width: 80px; height: 80px; border-radius: 50%; margin-bottom: 15px; object-fit: cover; border: 2px solid var(--border); }
+
+        /* --- FAQ --- */
+        .section-faq { padding: 100px 10%; max-width: 1000px; margin: 0 auto; }
+        .section-title { font-size: 2.8rem; text-align: center; margin-bottom: 70px; font-weight: 400; }
+        .faq-grid { display: grid; grid-template-columns: 1fr; gap: 50px; }
+        .faq-item h3 { font-size: 1.2rem; margin-bottom: 12px; font-weight: 400; }
+        .faq-item p { color: var(--subtext); line-height: 1.6; }
+
+        /* --- FEATURES --- */
+        .features { padding: 100px 10%; border-top: 1px solid var(--border); }
+        .features-header h2 { font-size: 3rem; font-weight: 400; margin-top: 10px; }
+        .grid-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px 40px; margin-top: 50px; }
+        .feat-card h4 { font-size: 1.3rem; font-weight: 400; margin-bottom: 15px; }
+        .feat-card p { color: var(--subtext); font-size: 0.95rem; line-height: 1.6; }
+
+        /* --- CTA BOX --- */
+        .cta-container { padding: 80px 10%; }
+        .cta-box { 
+            background: #080808; border: 1px solid var(--border); border-radius: 32px; 
+            padding: 100px 40px; text-align: center; position: relative; overflow: hidden; 
+        }
+        .cta-box h2 { font-size: 2.2rem; margin-bottom: 40px; font-weight: 400; line-height: 1.3; }
+        .s-cta { position: absolute; opacity: 0.9; pointer-events: none; }
+
+        /* --- FOOTER --- */
+        footer { padding: 60px 20px; text-align: center; border-top: 1px solid var(--border); }
+        .social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 30px; }
+        .social-links a { color: var(--text); text-decoration: none; font-size: 0.9rem; opacity: 0.6; transition: 0.3s; }
+        .social-links a:hover { opacity: 1; transform: translateY(-2px); }
+        .copyright { color: #555; font-size: 0.8rem; }
+
+        /* --- MODAL --- */
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(10px); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .modal-content { background: #111; border: 1px solid var(--border); padding: 40px; border-radius: 24px; text-align: center; max-width: 300px; width: 90%; }
+
+        @media (max-width: 768px) { nav { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } }
+    </style>
+</head>
+<body>
+
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal-content">
+            <h3>Soon</h3>
+            <button class="btn-download" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-links">
+            <a href="#about">About us</a>
+            <a href="#screens">Screenshots</a>
+            <a href="javascript:void(0)" onclick="openModal()">For Desktop’s</a>
+            <a href="https://discord.gg/Qy2A2Q55Tz" target="_blank">Contact us</a>
+        </div>
+        <div class="logo-container"><img src="logo.png" alt="ZenROM Logo"></div>
+        <div class="nav-right"><button class="btn-download" onclick="openModal()">Download</button></div>
+    </nav>
+
+    <section class="hero">
+        <img src="star.png" class="star-hero" style="top: 15%; left: 8%;">
+        <img src="star.png" class="star-hero" style="top: 20%; right: 12%; width: 15px;">
+        <img src="star.png" class="star-hero" style="top: 40%; left: 15%; width: 12px;">
+        <img src="star.png" class="star-hero" style="top: 60%; right: 20%; width: 25px;">
+        <img src="star.png" class="star-hero" style="bottom: 15%; left: 25%; width: 18px;">
+        <img src="star.png" class="star-hero" style="top: 10%; right: 40%; width: 10px;">
+        <img src="star.png" class="star-hero" style="bottom: 25%; right: 10%; width: 22px;">
+        <img src="star.png" class="star-hero" style="top: 50%; left: 5%; width: 15px;">
+        
+        <h1 class="gradient-text">Make your Android.<br>Better, Faster, More powerful & Responsive.</h1>
+        <p>ZenROM is an AOSP-based custom ROM that focuses on providing a smooth, clean, and bloatware-free experience for your Android device.</p>
+        <a href="#cta" class="btn-download" style="padding: 16px 45px; font-size: 1rem;">Get started</a>
+    </section>
+
+    <section class="screenshots-section" id="screens">
+        <h2>Experience ZenOS</h2>
+        <div class="screenshot-grid">
+            <div class="screen-card"><img src="lockscreen__Finisced_.jpeg" alt="Lockscreen"></div>
+            <div class="screen-card"><img src="homescreen_finisced.jpeg" alt="Homescreen"></div>
+            <div class="screen-card"><img src="QS_pannel_finished.png" alt="Quick Settings"></div>
+            <div class="screen-card"><img src="about_device_finished.png" alt="About Device"></div>
+            <div class="screen-card"><img src="lockscreen_AOD__Finisced_.png" alt="AOD"></div>
+        </div>
+    </section>
+
+    <section class="about-section" id="about">
+        <h2>Meet the team behind ZenOS</h2>
+        <p class="intro">We are a group of enthusiasts dedicated to creating the best Android experience for your devices.</p>
+        <div class="team-grid">
+            <div class="team-card"><img src="5992198957200772011_99.jpg"><h4>pixeedev</h4><p>Owner, Dev & Designer</p></div>
+            <div class="team-card"><img src="173731003.jpg"><h4>Retr0</h4><p>Owner, Dev & Designer</p></div>
+            <div class="team-card"><img src="03d70bc285e01f9c9f1fb1bf9afd9a06~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>Madebyanto</h4><p>Owner & Dev</p></div>
+            <div class="team-card"><img src="f6120ea98ac6f41966740d0fa673b654~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>mariowstech</h4><p>Owner & Dev</p></div>
+            <div class="team-card"><img src="c82e2ffabc782b34c4d95ae5747eb20b~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>manustech</h4><p>Owner</p></div>
+            <div class="team-card"><img src="952cd355ff9b8ecfb1b13b3d158678e1~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>xav</h4><p>Owner & Sound Producer</p></div>
+        </div>
+    </section>
+
+    <section class="section-faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item"><h3>Why ZenROM for performance oriented ROM?</h3><p>ZenROM focuses every optimization on system latency and response, ensuring stable frame rates and extreme speed.</p></div>
+            <div class="faq-item"><h3>Is ZenROM good for gaming?</h3><p>It includes specific kernel and touch response optimizations designed for the most demanding gamers.</p></div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-header"><h2>ZenROM <span style="opacity: 0.3;">offers</span></h2></div>
+        <div class="grid-features">
+            <div class="feat-card"><h4>Boost and performance</h4><p>Code optimized to reduce RAM consumption and increase app opening speeds.</p></div>
+            <div class="feat-card"><h4>Open Source</h4><p>All our code is transparent and available on GitHub for maximum security.</p></div>
+            <div class="feat-card"><h4>Material & Nothing Design UI</h4><p>A minimal aesthetic that blends Material You with the clean Nothing design style.</p></div>
+            <div class="feat-card"><h4>Battery Life</h4><p>Intelligent background process management to give you more screen-on time.</p></div>
+        </div>
+    </section>
+
+    <div class="cta-container" id="cta">
+        <div class="cta-box">
+            <img src="star1.png" class="s-cta" style="top: 20px; left: 20px; width: 32px;">
+            <img src="star2.png" class="s-cta" style="top: 20px; right: 20px; width: 26px;">
+            <img src="star3.png" class="s-cta" style="bottom: 20px; left: 20px; width: 22px;">
+            <img src="star4.png" class="s-cta" style="bottom: 20px; right: 20px; width: 36px;">
+            <img src="star5.png" class="s-cta" style="top: 50%; left: 5%; width: 18px;">
+            <h2>It's not like other boring custom AOSP ROMs<br><b>Try it now</b></h2>
+            <button class="btn-download" style="padding: 15px 45px;" onclick="openModal()">Download</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/ZenOS-Project" target="_blank">GitHub</a>
+            <a href="https://discord.gg/Qy2A2Q55Tz" target="_blank">Discord</a>
+            <a href="https://www.instagram.com/projectzen26/" target="_blank">Instagram</a>
+            <a href="https://www.tiktok.com/@zen.os.official" target="_blank">TikTok</a>
+        </div>
+        <p class="copyright">Copyright © 2026 ZenROM - All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function openModal() { document.getElementById('downloadModal').style.display = 'flex'; }
+        function closeModal() { document.getElementById('downloadModal').style.display = 'none'; }
+        window.onclick = function(e) { if (e.target == document.getElementById('downloadModal')) closeModal(); }
+    </script>
+</body>
+</html>
