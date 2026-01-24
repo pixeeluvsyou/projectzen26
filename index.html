@@ -129,7 +129,7 @@
 
         /* --- FOOTER --- */
         footer { padding: 60px 20px; text-align: center; border-top: 1px solid var(--border); }
-        .social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 30px; }
+        .social-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin-bottom: 30px; }
         .social-links a { color: var(--text); text-decoration: none; font-size: 0.9rem; opacity: 0.6; transition: 0.3s; }
         .social-links a:hover { opacity: 1; transform: translateY(-2px); }
         .copyright { color: #555; font-size: 0.8rem; }
@@ -167,9 +167,6 @@
         <img src="star.png" class="star-hero" style="top: 40%; left: 15%; width: 12px;">
         <img src="star.png" class="star-hero" style="top: 60%; right: 20%; width: 25px;">
         <img src="star.png" class="star-hero" style="bottom: 15%; left: 25%; width: 18px;">
-        <img src="star.png" class="star-hero" style="top: 10%; right: 40%; width: 10px;">
-        <img src="star.png" class="star-hero" style="bottom: 25%; right: 10%; width: 22px;">
-        <img src="star.png" class="star-hero" style="top: 50%; left: 5%; width: 15px;">
         
         <h1 class="gradient-text">Make your Android.<br>Better, Faster, More powerful & Responsive.</h1>
         <p>ZenROM is an AOSP-based custom ROM that focuses on providing a smooth, clean, and bloatware-free experience for your Android device.</p>
@@ -191,30 +188,30 @@
         <h2>Meet the team behind ZenOS</h2>
         <p class="intro">We are a group of enthusiasts dedicated to creating the best Android experience for your devices.</p>
         <div class="team-grid">
-            <div class="team-card"><img src="5992198957200772011_99.jpg"><h4>Pixeedev</h4><p>Owner, Dev & Designer</p></div>
+            <div class="team-card"><img src="5992198957200772011_99.jpg"><h4>pixeedev</h4><p>Owner, Dev & Designer</p></div>
             <div class="team-card"><img src="173731003.jpg"><h4>Retr0</h4><p>Owner, Dev & Designer</p></div>
             <div class="team-card"><img src="03d70bc285e01f9c9f1fb1bf9afd9a06~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>Madebyanto</h4><p>Owner & Dev</p></div>
-            <div class="team-card"><img src="f6120ea98ac6f41966740d0fa673b654~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>Mariowstech</h4><p>Owner & Dev</p></div>
-            <div class="team-card"><img src="c82e2ffabc782b34c4d95ae5747eb20b~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>Manustech</h4><p>Owner</p></div>
-            <div class="team-card"><img src="952cd355ff9b8ecfb1b13b3d158678e1~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>Xav</h4><p>Owner & Sound Producer</p></div>
+            <div class="team-card"><img src="f6120ea98ac6f41966740d0fa673b654~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>mariowstech</h4><p>Owner & Dev</p></div>
+            <div class="team-card"><img src="c82e2ffabc782b34c4d95ae5747eb20b~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>manustech</h4><p>Owner</p></div>
+            <div class="team-card"><img src="952cd355ff9b8ecfb1b13b3d158678e1~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>xav</h4><p>Owner & Sound Producer</p></div>
         </div>
     </section>
 
     <section class="section-faq">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="faq-grid">
-            <div class="faq-item"><h3>Why ZenROM for performance oriented ROM?</h3><p>ZenROM focuses every optimization on system latency and response, ensuring stable frame rates and extreme speed.</p></div>
-            <div class="faq-item"><h3>Is ZenROM good for gaming?</h3><p>It includes specific kernel and touch response optimizations designed for the most demanding gamers.</p></div>
+            <div class="faq-item"><h3>Why choose ZenROM for performance?</h3><p>ZenROM prioritizes system latency and responsiveness, ensuring stable frame rates and extreme multitasking speeds.</p></div>
+            <div class="faq-item"><h3>Is ZenROM optimized for gaming?</h3><p>Yes, it features custom kernel tuning and enhanced touch sampling designed for competitive mobile gaming.</p></div>
         </div>
     </section>
 
     <section class="features">
         <div class="features-header"><h2>ZenROM <span style="opacity: 0.3;">offers</span></h2></div>
         <div class="grid-features">
-            <div class="feat-card"><h4>Boost and performance</h4><p>Code optimized to reduce RAM consumption and increase app opening speeds.</p></div>
-            <div class="feat-card"><h4>Open Source</h4><p>All our code is transparent and available on GitHub for maximum security.</p></div>
-            <div class="feat-card"><h4>Material & Nothing Design UI</h4><p>A minimal aesthetic that blends Material You with the clean Nothing design style.</p></div>
-            <div class="feat-card"><h4>Battery Life</h4><p>Intelligent background process management to give you more screen-on time.</p></div>
+            <div class="feat-card"><h4>Boost & Performance</h4><p>Optimized codebases to reduce RAM overhead and accelerate app launch times.</p></div>
+            <div class="feat-card"><h4>Open Source</h4><p>Our entire source code is transparent and available on GitHub for community auditing.</p></div>
+            <div class="feat-card"><h4>Modern Design UI</h4><p>A minimalist aesthetic blending Material You with clean Nothing-style visuals.</p></div>
+            <div class="feat-card"><h4>Extended Battery</h4><p>Intelligent background management to maximize your screen-on time.</p></div>
         </div>
     </section>
 
@@ -234,6 +231,7 @@
         <div class="social-links">
             <a href="https://github.com/ZenOS-Project" target="_blank">GitHub</a>
             <a href="https://discord.gg/Qy2A2Q55Tz" target="_blank">Discord</a>
+            <a href="https://www.youtube.com/@projectzen26" target="_blank">YouTube</a>
             <a href="https://www.instagram.com/projectzen26/" target="_blank">Instagram</a>
             <a href="https://www.tiktok.com/@zen.os.official" target="_blank">TikTok</a>
         </div>
@@ -246,5 +244,4 @@
         window.onclick = function(e) { if (e.target == document.getElementById('downloadModal')) closeModal(); }
     </script>
 </body>
-
 </html>
