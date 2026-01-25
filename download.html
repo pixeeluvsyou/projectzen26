@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenOS | Downloads</title>
+    <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030508;
+            --card-bg: #070a0f;
+            --border: rgba(255, 255, 255, 0.08);
+            --accent-gray: #e0e0e0;
+            --text-main: #ffffff;
+            --text-dim: #94a3b8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Product Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+        nav {
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            background: rgba(3, 5, 8, 0.8);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .back-home { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; flex: 1; }
+        .logo-nav { flex: 1; display: flex; justify-content: center; }
+        .logo-nav img { height: 32px; width: auto; }
+        .nav-spacer { flex: 1; }
+
+        header { text-align: center; padding: 60px 20px 10px; }
+        h1 { font-size: 3rem; font-weight: 400; margin-bottom: 10px; }
+        h1 span { color: var(--accent-gray); font-weight: 700; }
+
+        .search-box { max-width: 500px; margin: 20px auto; }
+        .search-box input {
+            width: 100%;
+            padding: 15px 25px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: 0.3s;
+        }
+        .search-box input:focus { border-color: white; }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            padding: 0 5%;
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+        }
+        .filter-btn.active { background: white; color: black; border-color: white; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 5% 100px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            height: 480px;
+            transition: 0.3s ease;
+        }
+        .card.hidden { display: none; }
+        .card img { height: 160px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 20px; }
+        
+        .device-name { font-size: 1.15rem; font-weight: 400; color: white; margin-bottom: 2px; }
+        .codename { color: var(--text-dim); font-size: 0.8rem; margin-bottom: 20px; display: block; font-family: monospace; }
+
+        .btn-download {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: 0.2s;
+        }
+        .btn-download:hover { background: #cccccc; }
+
+        footer { text-align: center; padding: 40px; color: var(--text-dim); border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="back-home">← Home</a>
+        <div class="logo-nav"><img src="logo.png" alt="ZenOS"></div>
+        <div class="nav-spacer"></div>
+    </nav>
+
+    <header>
+        <h1>ZenOS <span>Downloads</span></h1>
+        <div class="search-box"><input type="text" id="searchInput" placeholder="Search device or codename..."></div>
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="google">Google</button>
+            <button class="filter-btn" data-filter="samsung">Samsung</button>
+            <button class="filter-btn" data-filter="xiaomi">Xiaomi</button>
+            <button class="filter-btn" data-filter="redmi">Redmi</button>
+            <button class="filter-btn" data-filter="nothing">Nothing</button>
+        </div>
+    </header>
+
+    <div class="grid" id="deviceGrid">
+        
+        <div class="card" data-brand="google"><div class="card-top"><img src="sunfish.webp"><h3 class="device-name">Pixel 4a</h3><span class="codename">sunfish</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="bramble.webp"><h3 class="device-name">Pixel 4a 5G</h3><span class="codename">bramble</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="redfin.webp"><h3 class="device-name">Pixel 5</h3><span class="codename">redfin</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="barbet.webp"><h3 class="device-name">Pixel 5a</h3><span class="codename">barbet</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="oriole.webp"><h3 class="device-name">Pixel 6</h3><span class="codename">oriole</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="raven.webp"><h3 class="device-name">Pixel 6 Pro</h3><span class="codename">raven</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="bluejay.webp"><h3 class="device-name">Pixel 6a</h3><span class="codename">bluejay</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="panther.webp"><h3 class="device-name">Pixel 7</h3><span class="codename">panther</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="cheetah.webp"><h3 class="device-name">Pixel 7 Pro</h3><span class="codename">cheetah</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="lynx.webp"><h3 class="device-name">Pixel 7a</h3><span class="codename">lynx</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="felix.webp"><h3 class="device-name">Pixel Fold</h3><span class="codename">felix</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="shiba.webp"><h3 class="device-name">Pixel 8</h3><span class="codename">shiba</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="husky.webp"><h3 class="device-name">Pixel 8 Pro</h3><span class="codename">husky</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="akita.webp"><h3 class="device-name">Pixel 8a</h3><span class="codename">akita</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="tokay.webp"><h3 class="device-name">Pixel 9</h3><span class="codename">tokay</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="caiman.webp"><h3 class="device-name">Pixel 9 Pro</h3><span class="codename">caiman</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="komodo.webp"><h3 class="device-name">Pixel 9 Pro XL</h3><span class="codename">komodo</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="google"><div class="card-top"><img src="comet.webp"><h3 class="device-name">Pixel 9 Pro Fold</h3><span class="codename">comet</span></div><a href="#" class="btn-download">Download</a></div>
+
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="beyond1lte.webp"><h3 class="device-name">Galaxy S10</h3><span class="codename">beyond1lte</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="beyondx.webp"><h3 class="device-name">Galaxy S10 5G</h3><span class="codename">beyondx</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="beyond2lte.webp"><h3 class="device-name">Galaxy S10+</h3><span class="codename">beyond2lte</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="beyond0lte.webp"><h3 class="device-name">Galaxy S10e</h3><span class="codename">beyond0lte</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="d1.webp"><h3 class="device-name">Galaxy Note 10</h3><span class="codename">d1</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="d2s.webp"><h3 class="device-name">Galaxy Note 10+</h3><span class="codename">d2s</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="star.webp"><h3 class="device-name">Galaxy S9</h3><span class="codename">star</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="star2lte.webp"><h3 class="device-name">Galaxy S9+</h3><span class="codename">star2lte</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="crownlte.webp"><h3 class="device-name">Galaxy Note 9</h3><span class="codename">crownlte</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="dreamlte.webp"><h3 class="device-name">Galaxy S8</h3><span class="codename">dreamlte</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="dream2lte.webp"><h3 class="device-name">Galaxy S8+</h3><span class="codename">dream2lte</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="greatlte.webp"><h3 class="device-name">Galaxy Note 8</h3><span class="codename">greatlte</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="a52sxq.webp"><h3 class="device-name">Galaxy A52s 5G</h3><span class="codename">a52sxq</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="a51.webp"><h3 class="device-name">Galaxy A51</h3><span class="codename">a51</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="samsung"><div class="card-top"><img src="a71.webp"><h3 class="device-name">Galaxy A71</h3><span class="codename">a71</span></div><a href="#" class="btn-download">Download</a></div>
+
+        <div class="card" data-brand="xiaomi"><div class="card-top"><img src="dipper.webp"><h3 class="device-name">Xiaomi Mi 8</h3><span class="codename">dipper</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="xiaomi"><div class="card-top"><img src="cepheus.webp"><h3 class="device-name">Xiaomi Mi 9</h3><span class="codename">cepheus</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="xiaomi"><div class="card-top"><img src="davinci.webp"><h3 class="device-name">Xiaomi Mi 9T</h3><span class="codename">davinci</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="xiaomi"><div class="card-top"><img src="raphael.webp"><h3 class="device-name">Xiaomi Mi 9T Pro</h3><span class="codename">raphael</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="xiaomi"><div class="card-top"><img src="umi.webp"><h3 class="device-name">Xiaomi Mi 10</h3><span class="codename">umi</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="xiaomi"><div class="card-top"><img src="venus.webp"><h3 class="device-name">Xiaomi Mi 11</h3><span class="codename">venus</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="xiaomi"><div class="card-top"><img src="cupid.webp"><h3 class="device-name">Xiaomi 12</h3><span class="codename">cupid</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="xiaomi"><div class="card-top"><img src="agate.webp"><h3 class="device-name">Xiaomi 11T</h3><span class="codename">agate</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="xiaomi"><div class="card-top"><img src="daisy.webp"><h3 class="device-name">Mi A2 Lite</h3><span class="codename">daisy</span></div><a href="#" class="btn-download">Download</a></div>
+
+        <div class="card" data-brand="redmi"><div class="card-top"><img src="begonia.webp"><h3 class="device-name">Redmi Note 8 Pro</h3><span class="codename">begonia</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="redmi"><div class="card-top"><img src="lancelot.webp"><h3 class="device-name">Redmi 9</h3><span class="codename">lancelot</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="redmi"><div class="card-top"><img src="sweet.webp"><h3 class="device-name">Redmi Note 10 Pro</h3><span class="codename">sweet</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="redmi"><div class="card-top"><img src="spes.webp"><h3 class="device-name">Redmi Note 11</h3><span class="codename">spes</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="redmi"><div class="card-top"><img src="veux.webp"><h3 class="device-name">Redmi Note 11 Pro</h3><span class="codename">veux</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="redmi"><div class="card-top"><img src="topas.webp"><h3 class="device-name">Redmi Note 12 4G</h3><span class="codename">topas</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="redmi"><div class="card-top"><img src="sapphire.webp"><h3 class="device-name">Redmi Note 13 4G</h3><span class="codename">sapphire</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="redmi"><div class="card-top"><img src="marble.webp"><h3 class="device-name">Poco F5</h3><span class="codename">marble</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="redmi"><div class="card-top"><img src="vayu.webp"><h3 class="device-name">Poco X3 Pro</h3><span class="codename">vayu</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="redmi"><div class="card-top"><img src="miatoll.webp"><h3 class="device-name">Redmi Note 9 Pro</h3><span class="codename">miatoll</span></div><a href="#" class="btn-download">Download</a></div>
+
+        <div class="card" data-brand="nothing"><div class="card-top"><img src="spacewar.webp"><h3 class="device-name">Nothing Phone (1)</h3><span class="codename">spacewar</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="nothing"><div class="card-top"><img src="pong.webp"><h3 class="device-name">Nothing Phone (2)</h3><span class="codename">pong</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="nothing"><div class="card-top"><img src="pacman.webp"><h3 class="device-name">Nothing Phone (2a)</h3><span class="codename">pacman</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="nothing"><div class="card-top"><img src="metroid.webp"><h3 class="device-name">Nothing Phone (3)</h3><span class="codename">metroid</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="nothing"><div class="card-top"><img src="asteroids.webp"><h3 class="device-name">Nothing Phone (3a)</h3><span class="codename">asteroids</span></div><a href="#" class="btn-download">Download</a></div>
+        <div class="card" data-brand="nothing"><div class="card-top"><img src="galaxian.webp"><h3 class="device-name">Nothing Phone (3a) Lite</h3><span class="codename">galaxian</span></div><a href="#" class="btn-download">Download</a></div>
+
+    </div>
+
+    <footer><p>Copyright © 2026 ZenROM - All Rights Reserved.</p></footer>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+
+        function applyFilters() {
+            const query = searchInput.value.toLowerCase();
+            const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+            
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                const brand = card.getAttribute('data-brand');
+                const matchesSearch = text.includes(query);
+                const matchesBrand = activeFilter === 'all' || brand === activeFilter;
+                
+                card.classList.toggle('hidden', !(matchesSearch && matchesBrand));
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                applyFilters();
+            });
+        });
+
+        searchInput.addEventListener('input', applyFilters);
+    </script>
+</body>
+</html>
