@@ -76,6 +76,44 @@
         .hero p { color: var(--subtext); max-width: 650px; margin: 0 auto 40px; font-size: 1.1rem; line-height: 1.5; }
         .star-hero { position: absolute; width: 20px; opacity: 0.6; pointer-events: none; }
 
+        /* NUOVI STILI PER I TASTI HERO */
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .btn-hero-primary {
+            background: white; color: black;
+            padding: 16px 45px; border-radius: 50px;
+            font-size: 1rem; text-decoration: none;
+            font-weight: bold; transition: 0.3s ease;
+        }
+
+        .btn-hero-secondary {
+            background: #000000;
+            color: #ffffff;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1rem;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: 0.3s ease;
+        }
+
+        .btn-hero-secondary:hover {
+            border-color: white;
+            background: #111;
+        }
+
+        .btn-hero-primary:hover { transform: scale(1.05); }
+
         /* --- SCREENSHOTS --- */
         .screenshots-section { padding: 120px 5% 100px; border-top: 1px solid var(--border); text-align: center; }
         .screenshots-section h2 { font-size: 2.8rem; margin-bottom: 50px; font-weight: 400; }
@@ -134,7 +172,11 @@
         .social-links a:hover { opacity: 1; transform: translateY(-2px); }
         .copyright { color: #555; font-size: 0.8rem; }
 
-        @media (max-width: 768px) { nav { grid-template-columns: 1fr 1fr; } .nav-links { display: none; } }
+        @media (max-width: 768px) { 
+            nav { grid-template-columns: 1fr 1fr; } 
+            .nav-links { display: none; } 
+            .hero-btns { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
@@ -143,7 +185,8 @@
         <div class="nav-links">
             <a href="#about">About us</a>
             <a href="#screens">Screenshots</a>
- <a href="https://discord.gg/Qy2A2Q55Tz" target="_blank">Contact us</a>
+            <a href="download.html">For Desktop’s</a> 
+            <a href="https://discord.gg/Qy2A2Q55Tz" target="_blank">Contact us</a>
         </div>
         <div class="logo-container"><img src="logo.png" alt="ZenROM Logo"></div>
         <div class="nav-right">
@@ -162,7 +205,8 @@
         
         <h1 class="gradient-text">Make your Android.<br>Better, Faster, More powerful & Responsive.</h1>
         <p>ZenROM is an AOSP-based custom ROM that focuses on providing a smooth, clean, and bloatware-free experience for your Android device.</p>
-  <div class="hero-btns">
+        
+        <div class="hero-btns">
             <a href="download.html" class="btn-hero-primary">Get started</a>
             <a href="install.html" class="btn-hero-secondary">
                 Let's install it 
@@ -188,7 +232,7 @@
         <h2>Meet the team behind ZenOS</h2>
         <p class="intro">We are a group of enthusiasts dedicated to creating the best Android experience for your devices.</p>
         <div class="team-grid">
-            <div class="team-card"><img src="HD-wallpaper-just-monika-ddlc-monika-physcological-horror.jpg"><h4>Pixeedev</h4><p>Owner, Dev & Designer</p></div>
+             <div class="team-card"><img src="HD-wallpaper-just-monika-ddlc-monika-physcological-horror.jpg"><h4>Pixeedev</h4><p>Owner, Dev & Designer</p></div>
             <div class="team-card"><img src="173731003.jpg"><h4>Retr0</h4><p>Owner, Dev & Designer</p></div>
             <div class="team-card"><img src="03d70bc285e01f9c9f1fb1bf9afd9a06~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>Madebyanto</h4><p>Owner & Dev</p></div>
             <div class="team-card"><img src="f6120ea98ac6f41966740d0fa673b654~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>Mariowstech</h4><p>Owner & Dev</p></div>
@@ -197,9 +241,6 @@
             <div class="team-card"><img src="WhatsApp Image 2026-02-06 at 18.41.30.jpeg"><h4>Jamestech</h4><p>Owner & Social Media Manager</p></div>
             <div class="team-card"><img src="0e599d6abc4d7f6eda085c9eceb5a778~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>AimZe's Tech</h4><p>Owner & Tester</p></div>
             <div class="team-card"><img src="90ef0a3c773d8739312917edc04e6ca7~tplv-tiktokx-cropcenter_1080_1080.jpeg"><h4>gabritech 🌑</h4><p>Owner & Social Media Manager</p></div>
-
-
-        </div>
     </section>
 
     <section class="section-faq">
@@ -243,16 +284,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
